@@ -11,7 +11,7 @@ services:
             - 43110:43110
         environment:
             - ENABLE_TOR=true
-        volumes_from:
+        volumes:
             - volumes_data
         tty: true
         restart: always
