@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+
+### ZeroNet Container ###########################
+
+    zeronet:
+        image: nofish/zeronet
+        ports:
+            - 15441:15441
+            - 43110:43110
+        environment:
+            - ENABLE_TOR=true
+        volumes_from:
+            - volumes_data
+        tty: true
+        restart: always
+
+### Data Container ################################
+
+    volumes_data:
+        image: tianon/true
+        volumes:
+            - ./data/zeronet:/root/data
+
+### Add more Containers below ###############################
